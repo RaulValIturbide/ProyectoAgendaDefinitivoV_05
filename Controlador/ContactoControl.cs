@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Controlador
 {
-    public partial class UserControl1: UserControl
+    public partial class ContactoControl: UserControl
     {
-        public UserControl1()
+        public ContactoControl()
         {
             InitializeComponent();
             BarraBotonesPrincipal.ClickMasInfo += btnMasInfo_Click; //Agregamos el evento al click original
@@ -32,9 +32,9 @@ namespace Controlador
             {
                 case EstadoEnum.Consulta:
                     //BarraBotones
-                    BarraBotonesPrincipal.VisibilidadGuardar = false;
-                    BarraBotonesPrincipal.VisibilidadPermitirModificar = false;
-                    BarraBotonesPrincipal.VisibilidadMasInfo = true;
+                   BarraBotonesPrincipal.VisibilidadGuardar = false;
+                   BarraBotonesPrincipal.VisibilidadPermitirModificar = false;
+                   BarraBotonesPrincipal.VisibilidadMasInfo = true;
 
                     txtNombre.Enabled = false;
                     txtApellidos.Enabled = false;

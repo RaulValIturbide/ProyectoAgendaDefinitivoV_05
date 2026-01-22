@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.userControl11 = new Controlador.UserControl1();
+            this.userControl11 = new Controlador.ContactoControl();
             this.SuspendLayout();
             // 
             // userControl11
@@ -52,7 +52,7 @@
 
         #endregion
 
-        private Controlador.UserControl1 userControl11;
+        private Controlador.ContactoControl userControl11;
     }
 }
 

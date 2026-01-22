@@ -1,6 +1,6 @@
 ﻿namespace Controlador
 {
-    partial class UserControl1
+    partial class ContactoControl
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -110,17 +110,7 @@
             this.tbContenidoDerecha.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 75F));
             this.tbContenidoDerecha.Size = new System.Drawing.Size(428, 194);
             this.tbContenidoDerecha.TabIndex = 1;
-            // 
-            // BarraBotonesPrincipal
-            // 
-            this.BarraBotonesPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BarraBotonesPrincipal.Location = new System.Drawing.Point(3, 3);
-            this.BarraBotonesPrincipal.Name = "BarraBotonesPrincipal";
-            this.BarraBotonesPrincipal.Size = new System.Drawing.Size(422, 42);
-            this.BarraBotonesPrincipal.TabIndex = 0;
-            this.BarraBotonesPrincipal.VisibilidadGuardar = true;
-            this.BarraBotonesPrincipal.VisibilidadMasInfo = true;
-            this.BarraBotonesPrincipal.VisibilidadPermitirModificar = true;
+
             // 
             // pnContenido
             // 
@@ -192,7 +182,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.tableLayoutPanel1);
-            this.Name = "UserControl1";
+            this.Name = "ContactoControl";
             this.Size = new System.Drawing.Size(620, 200);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.imgContacto)).EndInit();
