@@ -48,6 +48,7 @@ namespace Controlador
                     BarraBotonesPrincipal.VisibilidadGuardar = true;
 
                     btnAddImage.Visible = true;
+                    btnAddTelefono.Visible = true;
                     tbInfo.Enabled = true;
                     break;
                 case EstadoEnum.Consulta:
@@ -55,7 +56,7 @@ namespace Controlador
                     BarraBotonesPrincipal.VisibilidadMasInfo = false;
                     BarraBotonesPrincipal.VisibilidadPermitirModificar = true;
                     BarraBotonesPrincipal.VisibilidadGuardar = false;
-
+                    btnAddTelefono.Visible = false;
                     tbInfo.Enabled = false;
                     btnAddImage.Visible = false;
                     break;
@@ -76,13 +77,33 @@ namespace Controlador
 
         private void btnAddTelefono_Click(object sender, EventArgs e)
         {
-            tbInfo.RowCount++;
+            if (tbInfo.RowCount < 6)
+            {
+                tbInfo.RowCount++;
 
-            Label lb = new Label();
-            lb.Text = $"TELEFONO {tbInfo.RowCount - 3}";
-            lb.Font = new Font("MV Boli", (float)9.5, FontStyle.Regular);
+                btnAddTelefono.Location = new Point(
+                    btnAddTelefono.Location.X,
+                    btnAddTelefono.Location.Y + 25
+                );
 
-            tbInfo.Controls.Add(lb, 0, tbInfo.RowCount - 1);
+
+                Label lb = new Label();
+                lb.Text = $"TELEFONO {tbInfo.RowCount - 3}";
+                lb.Font = new Font("MV Boli", (float)9.5, FontStyle.Regular);
+                lb.Name = $"lbTelefono{tbInfo.RowCount - 3}"; //Nombre para identificar el ID ya que es dinámico
+
+                TextBox txt = new TextBox();
+                txt.Dock = DockStyle.Fill;
+                txt.Name = $"txtTelefono{tbInfo.RowCount - 3}";
+
+
+                tbInfo.Controls.Add(lb, 0, tbInfo.RowCount - 1);
+                tbInfo.Controls.Add(txt, 1, tbInfo.RowCount - 1);
+            }
+            else
+            { 
+                //MOSTRAR HAS LLEGADO AL MAX DE CAMPOS
+            }
 
         }
         

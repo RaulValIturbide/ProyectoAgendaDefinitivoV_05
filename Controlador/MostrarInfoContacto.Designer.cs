@@ -39,10 +39,10 @@
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.lbTelefono = new System.Windows.Forms.Label();
             this.tbInfo = new System.Windows.Forms.TableLayoutPanel();
-            this.BarraBotonesPrincipal = new Controlador.BarraBotones();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnAddTelefono = new System.Windows.Forms.Button();
             this.imgContacto = new System.Windows.Forms.PictureBox();
             this.pictureBoxMarco = new System.Windows.Forms.PictureBox();
+            this.BarraBotonesPrincipal = new Controlador.BarraBotones();
             this.panel1.SuspendLayout();
             this.tbInfo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.imgContacto)).BeginInit();
@@ -52,7 +52,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.Info;
-            this.panel1.Controls.Add(this.button1);
+            this.panel1.Controls.Add(this.btnAddTelefono);
             this.panel1.Controls.Add(this.tbInfo);
             this.panel1.Controls.Add(this.BarraBotonesPrincipal);
             this.panel1.Controls.Add(this.imgContacto);
@@ -179,25 +179,15 @@
             this.tbInfo.Size = new System.Drawing.Size(273, 205);
             this.tbInfo.TabIndex = 14;
             // 
-            // BarraBotonesPrincipal
+            // btnAddTelefono
             // 
-            this.BarraBotonesPrincipal.Location = new System.Drawing.Point(91, 9);
-            this.BarraBotonesPrincipal.Name = "BarraBotonesPrincipal";
-            this.BarraBotonesPrincipal.Size = new System.Drawing.Size(413, 41);
-            this.BarraBotonesPrincipal.TabIndex = 4;
-            this.BarraBotonesPrincipal.VisibilidadGuardar = true;
-            this.BarraBotonesPrincipal.VisibilidadMasInfo = true;
-            this.BarraBotonesPrincipal.VisibilidadPermitirModificar = true;
-            // 
-            // button1
-            // 
-            this.button1.Image = global::Controlador.Properties.Resources.plus;
-            this.button1.Location = new System.Drawing.Point(112, 390);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(40, 32);
-            this.button1.TabIndex = 15;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.btnAddTelefono_Click);
+            this.btnAddTelefono.Image = global::Controlador.Properties.Resources.plus;
+            this.btnAddTelefono.Location = new System.Drawing.Point(112, 390);
+            this.btnAddTelefono.Name = "btnAddTelefono";
+            this.btnAddTelefono.Size = new System.Drawing.Size(40, 32);
+            this.btnAddTelefono.TabIndex = 15;
+            this.btnAddTelefono.UseVisualStyleBackColor = true;
+            this.btnAddTelefono.Click += new System.EventHandler(this.btnAddTelefono_Click);
             // 
             // imgContacto
             // 
@@ -217,6 +207,16 @@
             this.pictureBoxMarco.Size = new System.Drawing.Size(180, 194);
             this.pictureBoxMarco.TabIndex = 1;
             this.pictureBoxMarco.TabStop = false;
+            // 
+            // BarraBotonesPrincipal
+            // 
+            this.BarraBotonesPrincipal.Location = new System.Drawing.Point(91, 9);
+            this.BarraBotonesPrincipal.Name = "BarraBotonesPrincipal";
+            this.BarraBotonesPrincipal.Size = new System.Drawing.Size(413, 41);
+            this.BarraBotonesPrincipal.TabIndex = 4;
+            this.BarraBotonesPrincipal.VisibilidadGuardar = true;
+            this.BarraBotonesPrincipal.VisibilidadMasInfo = true;
+            this.BarraBotonesPrincipal.VisibilidadPermitirModificar = true;
             // 
             // MostrarInfoContacto
             // 
@@ -253,6 +253,6 @@
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label lbTelefono;
         private System.Windows.Forms.TableLayoutPanel tbInfo;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnAddTelefono;
     }
 }
