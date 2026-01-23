@@ -12,6 +12,7 @@ namespace Controlador
 {
     public partial class ContactoControl: UserControl
     {
+        private Contacto _Contacto = new Contacto();
         public ContactoControl()
         {
             InitializeComponent();
@@ -42,14 +43,26 @@ namespace Controlador
                     break;                   
             }
         }
+
+        private void BindeoManual()
+        {
+            txtNombre.Text = _Contacto.Nombre;
+            txtApellidos.Text = _Contacto.Apellidos;
+            txtEmail.Text = _Contacto.Email;
+            imgContacto.Image = _Contacto.imagen;
+        }
         #endregion
 
         #region EVENTOS
 
         private void btnMasInfo_Click(object sender, EventArgs e)
         {
-            MostrarInfoContacto mostrarInfo = new MostrarInfoContacto();
-            mostrarInfo.ShowDialog();
+            MostrarInfoContacto mostrarInfo = new MostrarInfoContacto( _Contacto);
+
+            if (mostrarInfo.ShowDialog() == DialogResult.OK)
+            {
+                BindeoManual();
+            }
         }
         
         #endregion

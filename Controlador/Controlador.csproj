@@ -48,10 +48,11 @@
     <Compile Include="BarraBotones.Designer.cs">
       <DependentUpon>BarraBotones.cs</DependentUpon>
     </Compile>
+    <Compile Include="Contacto.cs" />
     <Compile Include="ContactoControl.Designer.cs">
       <DependentUpon>ContactoControl.cs</DependentUpon>
     </Compile>
-    <Compile Include="EstadoEnum.cs" />
+    <Compile Include="Utilidades\EstadoEnum.cs" />
     <Compile Include="MostrarInfoContacto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -67,6 +68,7 @@
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utilidades\Resultado.cs" />
     <Service Include="{94E38DFF-614B-4cbd-B67C-F211BB35CE8B}" />
   </ItemGroup>
   <ItemGroup>

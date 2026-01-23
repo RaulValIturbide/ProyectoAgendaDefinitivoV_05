@@ -12,10 +12,16 @@ namespace Controlador
 {
     public partial class MostrarInfoContacto : Form
     {
-        public MostrarInfoContacto()
+        public Contacto _Contacto;
+
+        public MostrarInfoContacto(Contacto contacto )
         {
             InitializeComponent();
 
+            _Contacto = contacto;
+
+            BindeoInverso();
+           
             EstablecerAspectoFormulario(EstadoEnum.Consulta);
 
             BarraBotonesPrincipal.ClickGuardar += btnGuardar_Click;
@@ -62,15 +68,92 @@ namespace Controlador
                     break;
             }
         }
+
+        private void BindeoManual()
+        {
+            _Contacto.Nombre = txtNombre.Text;
+            _Contacto.Apellidos = txtApellidos.Text;
+            _Contacto.Email = txtEmail.Text;
+            _Contacto.imagen = imgContacto.Image;
+            _Contacto.ListaTelefonos = ConseguirListaTelefonos();
+            
+        }
+
+        private void BindeoInverso()
+        {
+            if (_Contacto != null)
+            {
+                txtNombre.Text = _Contacto.Nombre;
+                txtApellidos.Text = _Contacto.Apellidos;
+                txtEmail.Text = _Contacto.Email;
+                imgContacto.Image = _Contacto.imagen;
+                if (_Contacto.ListaTelefonos.Count > 0)
+                {
+                    txtTelefono.Text = _Contacto.ListaTelefonos[0];
+                }
+
+                // Si hay más teléfonos, creamos filas dinámicas
+                int indice = 2; // El segundo teléfono será TELEFONO 2
+                for (int i = 1; i < _Contacto.ListaTelefonos.Count; i++)
+                {
+                    if (tbInfo.RowCount >= 6)
+                    {
+                        break;
+                    }
+                    tbInfo.RowCount++;
+                    btnAddTelefono.Location = new Point(
+                                              btnAddTelefono.Location.X,
+                                              btnAddTelefono.Location.Y + 25
+                                              );
+                    Label lb = new Label();
+                    lb.Text = $"TELEFONO {indice}";
+                    lb.Font = new Font("MV Boli", (float)9.5, FontStyle.Regular);
+                    lb.Name = $"lbTelefono{indice}";
+
+
+                    TextBox txt = new TextBox();
+                    txt.Dock = DockStyle.Fill;
+                    txt.Name = $"txtTelefono{indice}";
+                    txt.Text = _Contacto.ListaTelefonos[i];
+
+
+
+                    tbInfo.Controls.Add(lb, 0, tbInfo.RowCount - 1);
+                    tbInfo.Controls.Add(txt, 1, tbInfo.RowCount - 1);
+
+                    indice++;
+                }
+            }
+
+        }
+        private List<string> ConseguirListaTelefonos() 
+        { 
+            List<string> lista = new List<string>(); 
+            foreach (Control c in tbInfo.Controls) 
+            { 
+                if (c is TextBox && c.Name.StartsWith("txtTelefono")) 
+                {
+                    string valor = c.Text.Trim();
+                    if (!string.IsNullOrEmpty(valor))
+                    {
+                        lista.Add(valor);
+                    }
+                } 
+            } 
+            return lista; 
+        }
         #endregion
 
         #region EVENTOS
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            EstablecerAspectoFormulario(EstadoEnum.Consulta);
+            BindeoManual();
+            this.DialogResult = DialogResult.OK;
+            this.Close();
         }
         private void btnPermitirModificar_Click(object sender, EventArgs e)
         {
+           
             EstablecerAspectoFormulario(EstadoEnum.Edicion);
         }
         #endregion
