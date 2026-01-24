@@ -52,6 +52,12 @@
     <Compile Include="ContactoControl.Designer.cs">
       <DependentUpon>ContactoControl.cs</DependentUpon>
     </Compile>
+    <Compile Include="MostrarResultado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MostrarResultado.Designer.cs">
+      <DependentUpon>MostrarResultado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Utilidades\EstadoEnum.cs" />
     <Compile Include="MostrarInfoContacto.cs">
       <SubType>Form</SubType>
@@ -81,6 +87,9 @@
     <EmbeddedResource Include="MostrarInfoContacto.resx">
       <DependentUpon>MostrarInfoContacto.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="MostrarResultado.resx">
+      <DependentUpon>MostrarResultado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -106,6 +115,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\plus.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\error.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\correcto.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,7 +13,6 @@ namespace Controlador
         public string Apellidos { get; set; }
         public string Email { get; set; }
         public List<string> ListaTelefonos { get; set; } = new List<string>();
-
         public Image imagen { get; set; }
 
         public Resultado ValidarDatos()

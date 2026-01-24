@@ -20,6 +20,26 @@ namespace Controlador
             EstablecerAspectoFormulario(EstadoEnum.Consulta);
         }
 
+        #region Metodos Publicos
+
+        /// <summary>
+        /// Devuelve el objero contacto del componente
+        /// </summary>
+        /// <returns></returns>
+        public Contacto DevolverContacto()
+        {
+            return _Contacto;
+        }
+        /// <summary>
+        /// Agrega un contacto al componente por parametros
+        /// </summary>
+        /// <param name="c"></param>
+        public void CargarContacto(Contacto c)
+        {
+            this._Contacto = c;
+            BindeoManual();
+        }
+        #endregion
         #region MetodosPrivados
 
 
@@ -44,6 +64,7 @@ namespace Controlador
             }
         }
 
+        //Metodo para añadir un datacontext Objeto => Visual pero de manera manual
         private void BindeoManual()
         {
             txtNombre.Text = _Contacto.Nombre;
@@ -52,13 +73,12 @@ namespace Controlador
             imgContacto.Image = _Contacto.imagen;
         }
         #endregion
-
         #region EVENTOS
 
         private void btnMasInfo_Click(object sender, EventArgs e)
         {
             MostrarInfoContacto mostrarInfo = new MostrarInfoContacto( _Contacto);
-
+            mostrarInfo.Text = $"Contacto {_Contacto.Nombre} {_Contacto.Apellidos}";
             if (mostrarInfo.ShowDialog() == DialogResult.OK)
             {
                 BindeoManual();

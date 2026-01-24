@@ -68,7 +68,7 @@ namespace Controlador
                     break;
             }
         }
-
+        //Metodo para añadir un datacontext Objeto => Visual pero de manera manual
         private void BindeoManual()
         {
             _Contacto.Nombre = txtNombre.Text;
@@ -78,7 +78,8 @@ namespace Controlador
             _Contacto.ListaTelefonos = ConseguirListaTelefonos();
             
         }
-
+        //Metodo para añadir un datacontext a la inversa
+        //para cumplir la bidireccionalidad Objeto <= Visual de manera manual
         private void BindeoInverso()
         {
             if (_Contacto != null)
@@ -147,17 +148,29 @@ namespace Controlador
         #region EVENTOS
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            Resultado res = new Resultado();
             BindeoManual();
-            this.DialogResult = DialogResult.OK;
-            this.Close();
+            res = _Contacto.ValidarDatos();
+
+            if (res.CodigoError == 0)
+            {
+                res.MensajeResultado = "Registro modificado con éxito";
+                MostrarResultado mr = new MostrarResultado(res.MensajeResultado);
+                mr.ShowDialog();
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            }
+            else
+            {
+                MostrarResultado mr = new MostrarResultado(res);
+                mr.ShowDialog();
+            }
         }
         private void btnPermitirModificar_Click(object sender, EventArgs e)
         {
            
             EstablecerAspectoFormulario(EstadoEnum.Edicion);
         }
-        #endregion
-
         private void btnAddTelefono_Click(object sender, EventArgs e)
         {
             if (tbInfo.RowCount < 6)
@@ -184,12 +197,15 @@ namespace Controlador
                 tbInfo.Controls.Add(txt, 1, tbInfo.RowCount - 1);
             }
             else
-            { 
-                //MOSTRAR HAS LLEGADO AL MAX DE CAMPOS
+            {
+                //TODO MOSTRAR HAS LLEGADO AL MAX DE CAMPOS
             }
 
         }
-        
+
+        #endregion
+
+
     }
 
 }
